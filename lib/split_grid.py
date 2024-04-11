@@ -5,12 +5,8 @@ Created on Thu Jul 16 09:51:01 2020
 @author: anjit
 """
 import cv2
-import pytesseract
-
-
-# If path not set change the path given below to the path where your tesseract.exe file exists
-pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
-
+import easyocr
+reader = easyocr.Reader(['en'])
 
 
 def digitize_captured(sudo):
@@ -38,7 +34,7 @@ def image_ocr(image):
     and return it as a set of string 
     """
     image = cv2.imread(image)
-    return_string = pytesseract.image_to_string(image, lang='eng', config='--psm 10 --oem 3 -c tessedit_char_whitelist=0123456789')
+    return_string = reader.readtext(image, allowlist='0123456789')
     return return_string
 
 

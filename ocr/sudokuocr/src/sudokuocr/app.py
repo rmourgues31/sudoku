@@ -1,11 +1,10 @@
 """
 My first application
 """
-import PIL.Image
 import toga
 from toga.style import Pack
 from toga.style.pack import COLUMN, ROW
-import PIL
+from .ocr import parse_image
 
 
 
@@ -35,6 +34,8 @@ class SudokuOCR(toga.App):
             style=Pack(padding=5)
         )
 
+        #button2 = toga.Button("Click me", on_press=my_callback)
+
         button = toga.Button(
             "Photo!",
             on_press=self.time_for_a_selfie,
@@ -48,16 +49,14 @@ class SudokuOCR(toga.App):
         self.main_window.content = main_box
         self.main_window.show()
 
-    async def permission(self):
-        return await self.camera.request_permission()
-
     def say_hello(self, widget):
         print(f"Hello, {self.name_input.value}")
     
     async def time_for_a_selfie(self, widget, **kwargs):
         await self.camera.request_permission()
         photo = await self.camera.take_photo()
-        image = photo.as_format(PIL.Image.Image)
+        # image = photo.as_format(PIL.Image.Image)
+        print(parse_image(photo))
 
 
 def main():

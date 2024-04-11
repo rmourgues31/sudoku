@@ -47,9 +47,9 @@ def get_grid_loc(image, height, width):
             grid_loc = get_max_rect(hough_lines)
 
             # DEBUG : draw max rectangle -------------------
-        if grid_loc is not None:
-            cv2.imshow('Max Area Rectangle', cv2.polylines(
-            cv2.cvtColor(image, cv2.COLOR_GRAY2BGR), [np.int32(grid_loc)], True, (0, 255, 0), 2))
+        #if grid_loc is not None:
+            #cv2.imshow('Max Area Rectangle', cv2.polylines(
+           # cv2.cvtColor(image, cv2.COLOR_GRAY2BGR), [np.int32(grid_loc)], True, (0, 255, 0), 2))
             # ----------------------------------------------
         if grid_loc is None:
             return [], detected

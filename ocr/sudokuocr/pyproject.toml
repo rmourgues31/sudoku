@@ -173,6 +173,9 @@ requires = [
 [tool.briefcase.app.sudokuocr.android]
 requires = [
     "toga-android~=0.4.0",
+    "opencv-python",
+    "scikit",
+    "easyocr"
 ]
 permission.camera = "You can use camera"
 

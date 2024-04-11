@@ -9,15 +9,9 @@ import cv2
 #import numpy as np
 import solve_sudoku
 import get_grid
-import pytesseract
 import split_grid
 import display_sudo
-
-# If path not set change the path given below to the path where your tesseract.exe file exists
-#pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
-
-#print(pytesseract.pytesseract.tesseract_cmd)
-           
+ 
 stream = cv2.VideoCapture(0)
 
 if not stream.isOpened():
