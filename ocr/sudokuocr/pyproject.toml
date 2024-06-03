@@ -173,6 +173,7 @@ requires = [
 [tool.briefcase.app.sudokuocr.android]
 requires = [
     "toga-android~=0.4.0",
+    "numpy~=1.23.3",
     "opencv-python",
     "scikit",
     "easyocr"
